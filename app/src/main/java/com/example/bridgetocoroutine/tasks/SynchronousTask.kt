@@ -8,9 +8,9 @@ fun loadPostSynchronously(service: JsonPlaceholderService) : List<Post> {
 
     // Execute make the service call function but it work synchronously
     val posts = service
-        .getPostsWthExecute()
-        .execute()
-        .body() ?: listOf()
+        .getPostsWthCall()
+        .execute()  // return Response
+        .body() ?: listOf()  // we can change it in extension function
 
     return posts
 

@@ -1,5 +1,6 @@
 package com.example.bridgetocoroutine.model
 
+
 data class Post(
     val id:Int,
     val userId:Int,

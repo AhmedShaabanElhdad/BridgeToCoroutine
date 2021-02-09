@@ -16,7 +16,8 @@ object RetrofitBuilder{
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(makeOkHttpClient())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
+            //.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build().create(JsonPlaceholderService::class.java)
     }
 
