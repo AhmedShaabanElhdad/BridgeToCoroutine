@@ -1,5 +1,7 @@
 package com.example.bridgetocoroutine
 
+import android.view.View
+import kotlinx.coroutines.Job
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,4 +22,12 @@ inline fun <T> Call<T>.onResponse(crossinline callback: (Response<T>) -> Unit) {
 
 fun <T> Response<List<T>>.bodyList(): List<T> {
     return body() ?: listOf()
+}
+
+
+
+fun Job.cancelMyJob(updateUI:()->Unit){
+    val currentJob = this
+    currentJob.cancel()
+    updateUI()
 }
